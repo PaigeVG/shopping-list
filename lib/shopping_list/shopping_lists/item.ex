@@ -3,6 +3,7 @@ defmodule ShoppingList.ShoppingLists.Item do
   import Ecto.Changeset
 
   @primary_key {:name, :string, autogenerate: false}
+  @derive {Phoenix.Param, key: :name}
 
   alias ShoppingList.ShoppingLists
 

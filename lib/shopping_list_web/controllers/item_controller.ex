@@ -26,18 +26,18 @@ defmodule ShoppingListWeb.ItemController do
     end
   end
 
-  def show(conn, %{"name" => name}) do
+  def show(conn, %{"id" => name}) do
     item = ShoppingLists.get_item!(name)
     render(conn, "show.html", item: item)
   end
 
-  def edit(conn, %{"name" => name}) do
+  def edit(conn, %{"id" => name}) do
     item = ShoppingLists.get_item!(name)
     changeset = ShoppingLists.change_item(item)
     render(conn, "edit.html", item: item, changeset: changeset)
   end
 
-  def update(conn, %{"name" => name, "item" => item_params}) do
+  def update(conn, %{"id" => name, "item" => item_params}) do
     item = ShoppingLists.get_item!(name)
 
     case ShoppingLists.update_item(item, item_params) do
@@ -51,7 +51,7 @@ defmodule ShoppingListWeb.ItemController do
     end
   end
 
-  def delete(conn, %{"name" => name}) do
+  def delete(conn, %{"id" => name}) do
     item = ShoppingLists.get_item!(name)
     {:ok, _item} = ShoppingLists.delete_item(item)
 

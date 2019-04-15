@@ -20,6 +20,7 @@ defmodule ShoppingListWeb.Router do
 
     resources "/lists", ListController
     resources "/list_items", ListItemController
+    resources "/items", ItemController
   end
 
   # Other scopes may use custom stacks.
