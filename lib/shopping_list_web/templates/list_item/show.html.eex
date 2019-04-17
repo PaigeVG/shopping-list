@@ -1,0 +1,18 @@
+<h1>Show List item</h1>
+
+<ul>
+
+  <li>
+    <strong>Item:</strong>
+    <%= @list_item.item_name %>
+  </li>
+
+  <li>
+    <strong>Quantity:</strong>
+    <%= @list_item.quantity %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.list_item_path(@conn, :edit, @list_item) %></span>
+<span><%= link "Back", to: Routes.list_item_path(@conn, :index) %></span>
