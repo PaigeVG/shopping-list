@@ -1,11 +1,15 @@
-defmodule ShoppingList.Users do
+defmodule ShoppingList.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
+
+  alias ShoppingList.ShoppingLists
 
   schema "users" do
     field :email, :string
 
     timestamps()
+
+    has_one :space, ShoppingLists.Space
   end
 
   @doc false
