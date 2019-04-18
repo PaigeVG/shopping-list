@@ -293,4 +293,16 @@ defmodule ShoppingList.ShoppingLists do
   def change_item(%Item{} = item) do
     Item.changeset(item, %{})
   end
+
+  alias ShoppingList.ShoppingLists.Space
+
+  def list_spaces do
+    Repo.all(Space)
+  end
+
+  def create_space(attrs \\ %{}) do
+    %Space{}
+    |> Space.changeset(attrs)
+    |> Repo.insert()
+  end
 end

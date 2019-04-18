@@ -18,6 +18,9 @@ defmodule ShoppingListWeb.Router do
 
     get "/", PageController, :index
 
+    post "/spaces", SpaceController, :create
+    get "/spaces", SpaceController, :index
+
     resources "/lists", ListController
     resources "/list_items", ListItemController
     resources "/items", ItemController
