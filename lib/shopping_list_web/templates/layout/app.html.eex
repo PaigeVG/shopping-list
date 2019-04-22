@@ -13,6 +13,7 @@
         <nav role="navigation">
           <ul>
             <li><%= link "Lists", to: Routes.list_path(@conn, :index) %></li>
+            <li><%= link "New-List", to: Routes.list_path(@conn, :new) %></li>
           </ul>
         </nav>
         <a href="http://phoenixframework.org/" class="phx-logo">
