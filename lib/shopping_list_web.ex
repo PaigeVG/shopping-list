@@ -42,6 +42,7 @@ defmodule ShoppingListWeb do
       import ShoppingListWeb.ErrorHelpers
       import ShoppingListWeb.Gettext
       alias ShoppingListWeb.Router.Helpers, as: Routes
+      import ShoppingListWeb.Helpers.Auth, only: [signed_in?: 1]
     end
   end
 

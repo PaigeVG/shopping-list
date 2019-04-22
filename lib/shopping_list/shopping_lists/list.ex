@@ -9,8 +9,8 @@ defmodule ShoppingList.ShoppingLists.List do
 
     timestamps()
 
-    has_many :list_items, ShoppingLists.ListItem
-    belongs_to :space, ShoppingLists.Space
+
+    
   end
 
   @doc false

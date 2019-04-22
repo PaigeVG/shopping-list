@@ -42,6 +42,8 @@ defmodule ShoppingList.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
+      {:comeonin, "~> 5.1"},
+      {:bcrypt_elixir, "~> 2.0"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end

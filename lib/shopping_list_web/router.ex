@@ -18,12 +18,17 @@ defmodule ShoppingListWeb.Router do
 
     get "/", PageController, :index
 
-    post "/spaces", SpaceController, :create
-    get "/spaces", SpaceController, :index
+    post "/list", ListController, :create
+    get "/list", ListController, :index
 
     resources "/lists", ListController
     resources "/list_items", ListItemController
     resources "/items", ItemController
+    resources "/registrations", UserController, only: [:create, :new]
+
+    get "/sign_in", SessionController, :new
+    post "/sign_in", SessionController, :create
+    delete "sign_out", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
