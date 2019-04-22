@@ -3,6 +3,11 @@
 <ul>
 
   <li>
+    <strong>List ID:</strong>
+    <%= @list_item.list_id %>
+  </li>
+
+  <li>
     <strong>Item:</strong>
     <%= @list_item.item_name %>
   </li>

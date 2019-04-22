@@ -20,7 +20,7 @@ defmodule ShoppingList.ShoppingLists.ListItem do
   @doc false
   def changeset(list_item, attrs) do
     list_item
-    |> cast(attrs, [:item_name, :quantity])
-    |> validate_required([:item_name, :quantity])
+    |> cast(attrs, [:item_name, :quantity, :list_id])
+    |> validate_required([:item_name, :quantity, :list_id])
   end
 end

@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>List ID</th>
       <th>Item</th>
       <th>Quantity</th>
 
@@ -12,6 +13,7 @@
   <tbody>
 <%= for list_item <- @list_items do %>
     <tr>
+      <td><%= list_item.list_id %></td>
       <td><%= list_item.item_name %></td>
       <td><%= list_item.quantity %></td>
 

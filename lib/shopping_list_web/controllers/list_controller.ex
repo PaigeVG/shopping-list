@@ -3,7 +3,7 @@ defmodule ShoppingListWeb.ListController do
 
   alias ShoppingList.ShoppingLists
   alias ShoppingList.ShoppingLists.List
-  alias ShoppingLists.Accounts
+  alias ShoppingList.Accounts
 
   plug :check_auth when action in [:new, :create, :edit, :update, :delete]
 
