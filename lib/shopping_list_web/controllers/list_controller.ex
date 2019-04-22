@@ -5,7 +5,7 @@ defmodule ShoppingListWeb.ListController do
   alias ShoppingList.ShoppingLists.List
   alias ShoppingLists.Accounts
 
-  plug: check_auth when action in [:new, :create, :edit, :update, :delete]
+  plug :check_auth when action in [:new, :create, :edit, :update, :delete]
 
   defp check_auth(conn, _args) do
     if user_id = get_session(conn, :current_user_id) do
