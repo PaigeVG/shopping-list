@@ -6,27 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ShoppingList · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Ubuntu+Condensed" rel="stylesheet">
   </head>
+  <style>
+    li.btn.waves-effect.deep-orange.lighten-1 {
+      margin: 5px;
+    }
+
+    nav .nav-title {
+    text-align: center;
+    width: 100%;
+}
+
+  </style>
   <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-          </ul>
-        </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
+    <header class="container">
+      <nav class="nav-extended">
+    <div class="nav-wrapper light-blue">
+      <ul class="right">
+       <%= if signed_in?(@conn) do %>
+       <li class="btn waves-effect deep-orange lighten-1"> <%= link "Sign out", to: Routes.session_path(@conn, :delete), method: :delete %></li>
+       <% else %>
+        <li class="btn waves-effect deep-orange lighten-1"><%= link "Sign In", to: Routes.session_path(@conn, :new) %></li>
+        <li class="btn waves-effect deep-orange lighten-1" ><%= link "Sign up", to: Routes.user_path(@conn, :new) %></li>
+       <% end %>
+      </ul>
+    </div>
+    <div class="nav-content light-blue">
+      <span class="nav-title" style="font-family: 'Gochi Hand', cursive;  color:#fff; font-size:115px;">LIST LOCKER</span>
+    </div>
+  </nav>
     </header>
     <main role="main" class="container">
-      <%= if signed_in?(@conn) do %>
-        <%= link "Sign out", to: Routes.session_path(@conn, :delete), method: :delete %>
-      <% else %>
-        <%= link "Sign In", to: Routes.session_path(@conn, :new) %>
-        <%= link "Sign up", to: Routes.user_path(@conn, :new) %>
-      <% end %>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
