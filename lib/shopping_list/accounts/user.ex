@@ -8,6 +8,8 @@ defmodule ShoppingList.Accounts.User do
     field :username, :string
 
     timestamps()
+
+    has_many :list, ShoppingLists.List
   end
 
   @doc false
