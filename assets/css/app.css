@@ -1,3 +1,19 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+
+/* Custom CSS */
+li.btn.waves-effect.deep-orange.lighten-1 {
+  margin: 5px;
+}
+
+span.nav-title {
+  text-align: center;
+  width: 100%;
+}
+
+span.nav-title {
+  font-family: 'Gochi Hand', cursive;
+  color: #fff;
+  font-size: 115px!important;
+}

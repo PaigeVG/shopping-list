@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Ubuntu+Condensed" rel="stylesheet">
   </head>
   <style>
-    li.btn.waves-effect.deep-orange.lighten-1 {
+  /*  li.btn.waves-effect.deep-orange.lighten-1 {
       margin: 5px;
     }
 
@@ -19,10 +19,10 @@
     text-align: center;
     width: 100%;
 }
-
+*/
   </style>
   <body>
-    <header class="container">
+    <header class="">
       <nav class="nav-extended">
     <div class="nav-wrapper light-blue">
       <ul class="right">
@@ -35,7 +35,7 @@
       </ul>
     </div>
     <div class="nav-content light-blue">
-      <span class="nav-title" style="font-family: 'Gochi Hand', cursive;  color:#fff; font-size:115px;">LIST LOCKER</span>
+      <span class="nav-title">LIST LOCKER</span>
     </div>
   </nav>
     </header>
