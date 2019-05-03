@@ -23,4 +23,9 @@
   </tbody>
 </table>
 
-<span><%= link "New List", to: Routes.list_path(@conn, :new) %></span>
+<div class="fixed-action-btn">
+    <%= link to: Routes.list_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+        <i class="material-icons">add</i>
+    <% end %>
+    </a>
+</div>
