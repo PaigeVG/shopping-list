@@ -32,7 +32,11 @@ defmodule ShoppingListWeb.ListController do
   end
 
   def create(conn, %{"list" => list_params}) do
-    case ShoppingLists.create_list(list_params) do
+    changeset = conn.assigns.current_user
+      |> Ecto.build_assoc(:lists)
+      |> List.changeset(list_params)
+
+    case ShoppingList.Repo.insert(changeset) do
       {:ok, list} ->
         conn
         |> put_flash(:info, "List created successfully.")

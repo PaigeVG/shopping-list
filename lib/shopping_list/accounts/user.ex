@@ -7,9 +7,9 @@ defmodule ShoppingList.Accounts.User do
     field :encrypted_password, :string
     field :username, :string
 
-    timestamps()
+    has_many :lists, ShoppingList.ShoppingLists.List
 
-    has_many :list, ShoppingLists.List
+    timestamps()
   end
 
   @doc false
