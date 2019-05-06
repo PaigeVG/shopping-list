@@ -1,5 +1,5 @@
 <h1>New List item</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.list_item_path(@conn, :create)) %>
+<%= render "form.html", Map.put(assigns, :action, Routes.list_list_item_path(@conn, :create, @list_id)) %>
 
-<span><%= link "Back", to: Routes.list_item_path(@conn, :index) %></span>
+<span><%= link "Back", to: Routes.list_list_item_path(@conn, :index, @list_id) %></span>

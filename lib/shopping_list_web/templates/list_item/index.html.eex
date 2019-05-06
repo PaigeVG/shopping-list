@@ -18,13 +18,13 @@
       <td><%= list_item.quantity %></td>
 
       <td>
-        <%= link "Show", to: Routes.list_item_path(@conn, :show, list_item) %>
-        <%= link "Edit", to: Routes.list_item_path(@conn, :edit, list_item) %>
-        <%= link "Delete", to: Routes.list_item_path(@conn, :delete, list_item), method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link "Show", to: Routes.list_list_item_path(@conn, :show, @list_id, list_item) %>
+        <%= link "Edit", to: Routes.list_list_item_path(@conn, :edit, @list_id, list_item) %>
+        <%= link "Delete", to: Routes.list_list_item_path(@conn, :delete, @list_id, list_item), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New List item", to: Routes.list_item_path(@conn, :new) %></span>
+<span><%= link "New List item", to: Routes.list_list_item_path(@conn, :new, @list_id) %></span>

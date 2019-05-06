@@ -1,13 +1,17 @@
-<h1>Show List</h1>
+<h1><%= @list.name %></h1>
 
-<ul>
+<%= form_for @changeset, Routes.list_list_item_path(@conn, :create, @list), fn f -> %>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @list.name %>
-  </li>
+  <label>
+    <%= text_input f, :item_name %>
+  </label>
 
-</ul>
+  <label>
+    <%= text_input f, :quantity %>
+  </label>
+
+  <%= submit "new item" %>
+<% end %>
 
 <span><%= link "Edit", to: Routes.list_path(@conn, :edit, @list) %></span>
 <span><%= link "Back", to: Routes.list_path(@conn, :index) %></span>

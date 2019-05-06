@@ -21,8 +21,10 @@ defmodule ShoppingListWeb.Router do
     post "/list", ListController, :create
     get "/list", ListController, :index
 
-    resources "/lists", ListController
-    resources "/list_items", ListItemController
+    resources "/lists", ListController do
+      resources "/list_items", ListItemController
+    end
+
     resources "/items", ItemController
     resources "/registrations", UserController, only: [:create, :new]
 
