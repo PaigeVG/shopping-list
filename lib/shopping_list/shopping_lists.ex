@@ -35,7 +35,10 @@ defmodule ShoppingList.ShoppingLists do
       ** (Ecto.NoResultsError)
 
   """
-  def get_list!(id), do: Repo.get!(List, id)
+  def get_list!(id) do
+    Repo.get!(List, id)
+    |> Repo.preload(list_items: :item)
+  end
 
   @doc """
   Creates a list.
@@ -293,5 +296,4 @@ defmodule ShoppingList.ShoppingLists do
   def change_item(%Item{} = item) do
     Item.changeset(item, %{})
   end
-  
 end
