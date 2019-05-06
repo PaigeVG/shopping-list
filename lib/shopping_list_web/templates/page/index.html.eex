@@ -1,21 +1,7 @@
-
-<h1 class="center-align"><%= gettext "Welcome to %{name}!", name: "List Locker" %></h1>
-
-<section>
-  <div class="row">
-    <div class="col s12">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">List Locker Info</span>
-          <p>Hi and welcome to List Locker!  To create and view lists you must be logged in.
-          Signup or click below to get started!</p>
-        </div>
-        <div class="card-action">
-          <%= link "View Lists", to: Routes.list_path(@conn, :index) %>
-          <%= link "Create a List", to: Routes.list_path(@conn, :new) %>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="phx-hero">
+  <h1>Welcome to <span class="list-locker" style="font-family: 'Gochi Hand', cursive; font-size:85px;">LIST LOCKER</span></h1>
+  <p>List Locker allows you to create digital lists so you can access it on the go.
+    You are be able to create list for things like groceries, todo, recipes etc.</p>
 </section>
 
+<h1 class="center-align"><%= gettext "Welcome to %{name}!", name: "List Locker" %></h1>

@@ -6,24 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ShoppingList · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Ubuntu+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body>
+  <style>
+  /*  li.btn.waves-effect.deep-orange.lighten-1 {
+      margin: 5px;
+    }
 
-    <nav class="light-blue">
-      <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">List Locker</a>
-        <ul class="right">
-            <%= if signed_in?(@conn) do %>
-              <li><%= link "Sign out", to: Routes.session_path(@conn, :delete), method: :delete %></li>
-            <% else %>
-              <li><%= link "Sign In", to: Routes.session_path(@conn, :new) %></li>
-              <li><%= link "Sign up", to: Routes.user_path(@conn, :new) %></li>
-            <% end %>
-        </ul>
-      </div>
-    </nav>
+    nav .nav-title {
+    text-align: center;
+    width: 100%;
+}
+*/
+  </style>
+  <body>
+    <header class="">
+      <nav class="nav-extended">
+    <div class="nav-wrapper light-blue">
+      <ul class="right">
+       <%= if signed_in?(@conn) do %>
+       <li class="btn waves-effect deep-orange lighten-1"> <%= link "Sign out", to: Routes.session_path(@conn, :delete), method: :delete %></li>
+       <% else %>
+        <li class="btn waves-effect deep-orange lighten-1"><%= link "Sign In", to: Routes.session_path(@conn, :new) %></li>
+        <li class="btn waves-effect deep-orange lighten-1" ><%= link "Sign up", to: Routes.user_path(@conn, :new) %></li>
+       <% end %>
+      </ul>
+    </div>
+    <div class="nav-content light-blue">
+      <span class="nav-title">LIST LOCKER</span>
+    </div>
+  </nav>
+    </header>
 
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
