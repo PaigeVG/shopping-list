@@ -1,13 +1,37 @@
-<h1>Show List</h1>
+<h1><%= @list.name %></h1>
 
-<ul>
+<%= form_for @changeset, Routes.list_list_item_path(@conn, :create, @list), fn f -> %>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @list.name %>
-  </li>
+  <label>
+    Item <%= text_input f, :item_name %>
+  </label>
 
-</ul>
+  <label>
+    Quantity <%= text_input f, :quantity %>
+  </label>
+
+  <%= submit "new item" %>
+<% end %>
+
+<!--
+@grouped_items = %{"produce" => [%ListItem{item_name: "apple", quantity: 3}, %ListItem{item_name: "beet", quantity: 3}], "meat" => [......]}
+ -->
+
+<%= for {section, list_items} <- @grouped_list_items do %>
+  <%= render("section.html", section: section, list_items: list_items) %>
+<% end %>
+
+<!--
+<table>
+  <%= for list_item <- @list.list_items do %>
+    <tr>
+      <td><%= list_item.item_name %></td>
+      <td><%= list_item.quantity %></td>
+    </tr>
+  <% end %>
+</table>
+ -->
+
 
 <span><%= link "Edit", to: Routes.list_path(@conn, :edit, @list) %></span>
 <span><%= link "Back", to: Routes.list_path(@conn, :index) %></span>

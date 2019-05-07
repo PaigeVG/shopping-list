@@ -35,7 +35,10 @@ defmodule ShoppingList.ShoppingLists do
       ** (Ecto.NoResultsError)
 
   """
-  def get_list!(id), do: Repo.get!(List, id)
+  def get_list!(id) do
+    Repo.get!(List, id)
+    |> Repo.preload(list_items: :item)
+  end
 
   @doc """
   Creates a list.
@@ -198,6 +201,10 @@ defmodule ShoppingList.ShoppingLists do
     ListItem.changeset(list_item, %{})
   end
 
+  def group_list_items(%List{list_items: list_items}) do
+    Enum.group_by(list_items, fn list_item -> list_item.item.section end)
+  end
+
   alias ShoppingList.ShoppingLists.Item
 
   @doc """
@@ -293,5 +300,4 @@ defmodule ShoppingList.ShoppingLists do
   def change_item(%Item{} = item) do
     Item.changeset(item, %{})
   end
-  
 end

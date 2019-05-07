@@ -32,7 +32,8 @@ defmodule ShoppingListWeb.ListController do
   end
 
   def create(conn, %{"list" => list_params}) do
-    changeset = conn.assigns.current_user
+    changeset =
+      conn.assigns.current_user
       |> Ecto.build_assoc(:lists)
       |> List.changeset(list_params)
 
@@ -48,8 +49,18 @@ defmodule ShoppingListWeb.ListController do
   end
 
   def show(conn, %{"id" => id}) do
+    alias ShoppingList.ShoppingLists.ListItem
     list = ShoppingLists.get_list!(id)
-    render(conn, "show.html", list: list)
+    grouped_list_items = ShoppingLists.group_list_items(list)
+    changeset = ListItem.changeset(%ListItem{}, %{list_id: id})
+
+    render(
+      conn,
+      "show.html",
+      list: list,
+      changeset: changeset,
+      grouped_list_items: grouped_list_items
+    )
   end
 
   def edit(conn, %{"id" => id}) do
