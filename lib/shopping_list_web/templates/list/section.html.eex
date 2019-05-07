@@ -1,9 +1,3 @@
-<!--
-section = "produce"
-
-items = [%ListItem{item_name: "apple", quantity: 3},
-         %ListItem{item_name: "beet", quantity: 3}]
- -->
 <table>
   <th>
     <%= @section %>
