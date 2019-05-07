@@ -51,8 +51,16 @@ defmodule ShoppingListWeb.ListController do
   def show(conn, %{"id" => id}) do
     alias ShoppingList.ShoppingLists.ListItem
     list = ShoppingLists.get_list!(id)
+    grouped_list_items = ShoppingLists.group_list_items(list)
     changeset = ListItem.changeset(%ListItem{}, %{list_id: id})
-    render(conn, "show.html", list: list, changeset: changeset)
+
+    render(
+      conn,
+      "show.html",
+      list: list,
+      changeset: changeset,
+      grouped_list_items: grouped_list_items
+    )
   end
 
   def edit(conn, %{"id" => id}) do

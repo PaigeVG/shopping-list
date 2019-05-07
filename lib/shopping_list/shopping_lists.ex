@@ -201,6 +201,10 @@ defmodule ShoppingList.ShoppingLists do
     ListItem.changeset(list_item, %{})
   end
 
+  def group_list_items(%List{list_items: list_items}) do
+    Enum.group_by(list_items, fn list_item -> list_item.item.section end)
+  end
+
   alias ShoppingList.ShoppingLists.Item
 
   @doc """

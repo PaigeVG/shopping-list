@@ -13,6 +13,15 @@
   <%= submit "new item" %>
 <% end %>
 
+<!--
+@grouped_items = %{"produce" => [%ListItem{item_name: "apple", quantity: 3}, %ListItem{item_name: "beet", quantity: 3}], "meat" => [......]}
+ -->
+
+<%= for {section, list_items} <- @grouped_list_items do %>
+  <%= render("section.html", section: section, list_items: list_items) %>
+<% end %>
+
+<!--
 <table>
   <%= for list_item <- @list.list_items do %>
     <tr>
@@ -21,6 +30,7 @@
     </tr>
   <% end %>
 </table>
+ -->
 
 
 <span><%= link "Edit", to: Routes.list_path(@conn, :edit, @list) %></span>
