@@ -1,16 +1,16 @@
-<h1><%= @list.name %></h1>
+<h4 class="show-list-name"><%= @list.name %></h4>
 
 <%= form_for @changeset, Routes.list_list_item_path(@conn, :create, @list), fn f -> %>
 
-  <label>
+  <label class="item-label">
     Item <%= text_input f, :item_name %>
   </label>
 
-  <label>
+  <label class="quantity-label">
     Quantity <%= text_input f, :quantity %>
   </label>
 
-  <%= submit "new item" %>
+  <%= submit "New Item", class: "btn waves-effect deep-orange lighten-1" %>
 <% end %>
 
 <!--

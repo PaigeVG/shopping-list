@@ -1,4 +1,4 @@
-<h1 class="listing-title">Listing Lists</h1>
+<h2 class="listing-title">My List</h2>
 
 <table>
   <thead>
@@ -11,10 +11,10 @@
   <tbody>
 <%= for list <- @lists do %>
     <tr>
-      <td><%= list.name %></td>
+      <td class="td-list-name"><%= link list.name, to: Routes.list_path(@conn, :show, list) %></td>
 
       <td>
-        <%= link "Show", to: Routes.list_path(@conn, :show, list) %>
+
         <%= link "Edit", to: Routes.list_path(@conn, :edit, list) %>
         <%= link "Delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>

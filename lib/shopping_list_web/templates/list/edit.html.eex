@@ -1,4 +1,4 @@
-<h1>Edit List</h1>
+<h4>Edit List</h4>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.list_path(@conn, :update, @list)) %>
 

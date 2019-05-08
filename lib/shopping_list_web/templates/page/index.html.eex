@@ -3,5 +3,3 @@
   <p>List Locker allows you to create digital lists so you can access it on the go.
     You are be able to create list for things like groceries, todo, recipes etc.</p>
 </section>
-
-<h1 class="center-align"><%= gettext "Welcome to %{name}!", name: "List Locker" %></h1>

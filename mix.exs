@@ -20,7 +20,7 @@ defmodule ShoppingList.MixProject do
   def application do
     [
       mod: {ShoppingList.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_github]
     ]
   end
 
@@ -44,7 +44,9 @@ defmodule ShoppingList.MixProject do
       {:jason, "~> 1.0"},
       {:comeonin, "~> 5.1"},
       {:bcrypt_elixir, "~> 2.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:ueberauth, "~> 0.6.1"},
+      {:ueberauth_github, "~> 0.7"}
     ]
   end
 
