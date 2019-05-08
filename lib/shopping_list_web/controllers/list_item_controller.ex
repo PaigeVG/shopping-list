@@ -55,6 +55,15 @@ defmodule ShoppingListWeb.ListItemController do
     end
   end
 
+  def toggle_obtained(conn, %{"id" => id}) do
+    list_item = ShoppingLists.get_list_item!(id)
+
+    ShoppingLists.update_list_item(list_item, %{obtained: !list_item.obtained})
+    |> IO.inspect()
+
+    send_resp(conn, 200, "")
+  end
+
   def delete(conn, %{"id" => id, "list_id" => list_id}) do
     list_item = ShoppingLists.get_list_item!(id)
     {:ok, _list_item} = ShoppingLists.delete_list_item(list_item)
