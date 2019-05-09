@@ -1,7 +1,18 @@
-<h1><%= @list.name %></h1>
+<h4 class="show-list-name"><%= @list.name %></h4>
 
 <%= form_for @changeset, Routes.list_list_item_path(@conn, :create, @list), fn f -> %>
 
+<<<<<<< HEAD
+  <label class="item-label">
+    Item <%= text_input f, :item_name %>
+  </label>
+
+  <label class="quantity-label">
+    Quantity <%= text_input f, :quantity %>
+  </label>
+
+  <%= submit "New Item", class: "btn waves-effect deep-orange lighten-1" %>
+=======
   <div id="new-item";>
     <button type="submit"><i class="medium material-icons">add</i></button>
     <label>
@@ -13,6 +24,7 @@
     </label>
   </div>
 
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
 <% end %>
 
 <table>

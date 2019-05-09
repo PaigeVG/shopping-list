@@ -10,6 +10,6 @@
   <%= error_tag f, :name %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", class: "btn waves-effect deep-orange lighten-1" %>
   </div>
 <% end %>

@@ -1,9 +1,29 @@
+<<<<<<< HEAD
+<h2 class="listing-title">My List</h2>
+=======
 <%= if !(connected_user = Plug.Conn.get_session(@conn, :current_user_id)) do %>
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
 
 <ul class="collection with-header">
   <li class="collection-header center"><h4>Please create an account</h4></li>
 </ul>
 
+<<<<<<< HEAD
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for list <- @lists do %>
+    <tr>
+      <td class="td-list-name"><%= link list.name, to: Routes.list_path(@conn, :show, list) %></td>
+
+      <td>
+
+        <%= link "Edit", to: Routes.list_path(@conn, :edit, list) %>
+        <%= link "Delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+=======
 <%= else %>
       <ul class="collection with-header">
         <li class="collection-header center"><h4>Your Lists</h4></li>
@@ -16,6 +36,7 @@
           <%= link "delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "material-icons secondary-content" %>
         </li>
     <% end %>
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
 <% end %>
 </ul>
 
