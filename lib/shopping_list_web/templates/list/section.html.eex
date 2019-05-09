@@ -1,17 +1,15 @@
-<!--
-section = "produce"
-
-items = [%ListItem{item_name: "apple", quantity: 3},
-         %ListItem{item_name: "beet", quantity: 3}]
- -->
-<table>
-  <th>
-    <%= @section %>
-  </th>
-  <%= for list_item <- @list_items do %>
-    <tr>
-      <td><%= list_item.item_name %></td>
-      <td><%= list_item.quantity %></td>
-    </tr>
-  <% end %>
-</table>
+<th style="padding-top: 2em">
+  <%= @section %>
+</th>
+<%= for list_item <- @list_items do %>
+  <tr>
+    <td>
+      <label>
+        <%= render("list_item_checkbox.html", conn: @conn, list_item: list_item) %>
+        <span></span> <!-- empty span to satisfy materialize.css-->
+      </label>
+    </td>
+    <td><%= list_item.item_name %></td>
+    <td><%= list_item.quantity %></td>
+  </tr>
+<% end %>

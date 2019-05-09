@@ -6,6 +6,7 @@ defmodule ShoppingList.ShoppingLists.ListItem do
 
   schema "list_items" do
     field :quantity, :integer
+    field :obtained, :boolean, default: false
 
     timestamps()
 
@@ -20,7 +21,7 @@ defmodule ShoppingList.ShoppingLists.ListItem do
   @doc false
   def changeset(list_item, attrs) do
     list_item
-    |> cast(attrs, [:item_name, :quantity, :list_id])
-    |> validate_required([:item_name, :quantity, :list_id])
+    |> cast(attrs, [:item_name, :quantity, :list_id, :obtained])
+    |> validate_required([:item_name, :quantity, :list_id, :obtained])
   end
 end

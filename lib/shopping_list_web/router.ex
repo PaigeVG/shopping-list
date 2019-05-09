@@ -22,6 +22,7 @@ defmodule ShoppingListWeb.Router do
     get "/list", ListController, :index
 
     resources "/lists", ListController do
+      put "/list_items/:id/toggle", ListItemController, :toggle_obtained
       resources "/list_items", ListItemController
     end
 

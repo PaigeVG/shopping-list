@@ -20,8 +20,7 @@ defmodule ShoppingListWeb.ListItemController do
     case ShoppingLists.create_list_item(list_item_params) do
       {:ok, list_item} ->
         conn
-        |> put_flash(:info, "List item created successfully.")
-        |> redirect(to: Routes.list_list_item_path(conn, :show, list_id, list_item))
+        |> redirect(to: Routes.list_path(conn, :show, list_id))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         IO.inspect(changeset)
@@ -53,6 +52,15 @@ defmodule ShoppingListWeb.ListItemController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", list_item: list_item, changeset: changeset)
     end
+  end
+
+  def toggle_obtained(conn, %{"id" => id}) do
+    list_item = ShoppingLists.get_list_item!(id)
+
+    ShoppingLists.update_list_item(list_item, %{obtained: !list_item.obtained})
+    |> IO.inspect()
+
+    send_resp(conn, 200, "")
   end
 
   def delete(conn, %{"id" => id, "list_id" => list_id}) do

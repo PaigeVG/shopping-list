@@ -18,6 +18,7 @@ span.nav-title {
   font-size: 115px!important;
 }
 
+<<<<<<< HEAD
 input#list_name, input#list_item_item_name, input#list_item_quantity {
     border: solid 1px;
 }
@@ -61,4 +62,18 @@ form {
 input::placeholder {
   color: #fff;
   text-transform: capitalize;;
+=======
+#new-item {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+#new-item > * {
+  margin-right: 30px;
+}
+
+#new-item button {
+  padding: 0;
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
 }

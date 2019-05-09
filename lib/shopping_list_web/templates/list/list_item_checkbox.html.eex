@@ -1,0 +1,6 @@
+<input
+  autocomplete="off"
+  type="checkbox"
+  onclick="fetch('<%= toggle_route(@conn, @list_item) %>', {method: 'PUT'});"
+  <%= if @list_item.obtained, do: "checked", else: "" %>
+>

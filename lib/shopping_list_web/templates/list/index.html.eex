@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 <h2 class="listing-title">My List</h2>
+=======
+<%= if !(connected_user = Plug.Conn.get_session(@conn, :current_user_id)) do %>
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
+<ul class="collection with-header">
+  <li class="collection-header center"><h4>Please create an account</h4></li>
+</ul>
 
+<<<<<<< HEAD
       <th></th>
     </tr>
   </thead>
@@ -19,9 +23,22 @@
         <%= link "Delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>
     </tr>
+=======
+<%= else %>
+      <ul class="collection with-header">
+        <li class="collection-header center"><h4>Your Lists</h4></li>
 <% end %>
-  </tbody>
-</table>
+      <%= for list <- @lists do %>
+        <%= if (connected_user = Plug.Conn.get_session(@conn, :current_user_id)) && connected_user == list.user_id do %>
+        <li class="collection-item"><div><%= list.name %>
+          <%= link "send", to: Routes.list_path(@conn, :show, list), class: "material-icons secondary-content" %>
+          <%= link "create", to: Routes.list_path(@conn, :edit, list), class: "material-icons secondary-content" %>
+          <%= link "delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "material-icons secondary-content" %>
+        </li>
+    <% end %>
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
+<% end %>
+</ul>
 
 <div class="fixed-action-btn">
     <%= link to: Routes.list_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>

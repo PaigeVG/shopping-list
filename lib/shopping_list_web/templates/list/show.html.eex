@@ -2,6 +2,7 @@
 
 <%= form_for @changeset, Routes.list_list_item_path(@conn, :create, @list), fn f -> %>
 
+<<<<<<< HEAD
   <label class="item-label">
     Item <%= text_input f, :item_name %>
   </label>
@@ -11,27 +12,26 @@
   </label>
 
   <%= submit "New Item", class: "btn waves-effect deep-orange lighten-1" %>
+=======
+  <div id="new-item";>
+    <button type="submit"><i class="medium material-icons">add</i></button>
+    <label>
+      <%= text_input f, :item_name, placeholder: "Item" %>
+    </label>
+
+    <label>
+      <%= text_input f, :quantity, placeholder: "Quantity" %>
+    </label>
+  </div>
+
+>>>>>>> 52e7c99511b3f6e8731ee0fe44358aaa8d914846
 <% end %>
 
-<!--
-@grouped_items = %{"produce" => [%ListItem{item_name: "apple", quantity: 3}, %ListItem{item_name: "beet", quantity: 3}], "meat" => [......]}
- -->
-
-<%= for {section, list_items} <- @grouped_list_items do %>
-  <%= render("section.html", section: section, list_items: list_items) %>
-<% end %>
-
-<!--
 <table>
-  <%= for list_item <- @list.list_items do %>
-    <tr>
-      <td><%= list_item.item_name %></td>
-      <td><%= list_item.quantity %></td>
-    </tr>
+  <%= for {section, list_items} <- @grouped_list_items do %>
+    <%= render("section.html", conn: @conn, section: section, list_items: list_items) %>
   <% end %>
 </table>
- -->
-
 
 <span><%= link "Edit", to: Routes.list_path(@conn, :edit, @list) %></span>
 <span><%= link "Back", to: Routes.list_path(@conn, :index) %></span>
