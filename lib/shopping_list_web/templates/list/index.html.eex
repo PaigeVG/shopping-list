@@ -1,29 +1,36 @@
 <%= if !(connected_user = Plug.Conn.get_session(@conn, :current_user_id)) do %>
-  <ul class="collection with-header">
-    <li class="collection-header center"><h4>Please create an account</h4></li>
-  </ul>
 
-<% else %>
-  <ul class="collection with-header">
-    <li class="collection-header center"><h4>Your Lists</h4></li>
+<ul class="collection with-header">
+  <li class="collection-header center"><h4>Please create an account</h4></li>
+</ul>
 
+<%= else %>
+  <h2 class="listing-title">My Lists</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for list <- @lists do %>
+        <%= if (connected_user = Plug.Conn.get_session(@conn, :current_user_id)) && connected_user == list.user_id do %>
+          <tr>
+            <td class="td-list-name"><%= link list.name, to: Routes.list_path(@conn, :show, list) %>
+            </td>
+            <td>
+              <%= link "Edit", to: Routes.list_path(@conn, :edit, list) %>
+              <%= link "Delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
-
-<%= for list <- @lists do %>
-
-  <%= if (connected_user = Plug.Conn.get_session(@conn, :current_user_id)) && connected_user == list.user_id do %>
-    <li class="collection-item"><div><%= list.name %>
-      <%= link "send", to: Routes.list_path(@conn, :show, list), class: "material-icons secondary-content" %>
-      <%= link "create", to: Routes.list_path(@conn, :edit, list), class: "material-icons secondary-content" %>
-      <%= link "delete", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "material-icons secondary-content" %>
-    </li>
-  <% end %>
-<% end %>
-  </ul>
-
 <div class="fixed-action-btn">
-  <%= link to: Routes.list_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
-      <i class="material-icons">add</i>
-  <% end %>
-  </a>
+    <%= link to: Routes.list_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+        <i class="material-icons">add</i>
+    <% end %>
+    </a>
 </div>
