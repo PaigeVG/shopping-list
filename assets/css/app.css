@@ -17,3 +17,8 @@ span.nav-title {
   color: #fff;
   font-size: 115px!important;
 }
+
+.shopping-list {
+  border-collapse: separate;
+  border-spacing: 100px;
+}

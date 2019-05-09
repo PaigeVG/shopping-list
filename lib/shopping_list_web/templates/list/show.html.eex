@@ -12,10 +12,11 @@
 
   <%= submit "new item" %>
 <% end %>
-
-<%= for {section, list_items} <- @grouped_list_items do %>
-  <%= render("section.html", conn: @conn, section: section, list_items: list_items) %>
-<% end %>
+<table>
+  <%= for {section, list_items} <- @grouped_list_items do %>
+    <%= render("section.html", conn: @conn, section: section, list_items: list_items) %>
+  <% end %>
+</table>
 
 <span><%= link "Edit", to: Routes.list_path(@conn, :edit, @list) %></span>
 <span><%= link "Back", to: Routes.list_path(@conn, :index) %></span>
