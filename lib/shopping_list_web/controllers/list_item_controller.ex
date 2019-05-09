@@ -18,7 +18,7 @@ defmodule ShoppingListWeb.ListItemController do
     list_item_params = Map.put(list_item_params, "list_id", list_id)
 
     case ShoppingLists.create_list_item(list_item_params) do
-      {:ok, list_item} ->
+      {:ok, _list_item} ->
         conn
         |> redirect(to: Routes.list_path(conn, :show, list_id))
 

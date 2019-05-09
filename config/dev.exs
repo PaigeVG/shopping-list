@@ -69,7 +69,7 @@ config :phoenix, :plug_init_mode, :runtime
 # Configure your database
 config :shopping_list, ShoppingList.Repo,
   username: "postgres",
-  password: "password",
+  password: "postgres",
   database: "shopping_list_dev",
   hostname: "localhost",
   pool_size: 10

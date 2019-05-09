@@ -31,7 +31,7 @@ defmodule ShoppingListWeb.Router do
 
     get "/sign_in", SessionController, :new
     post "/sign_in", SessionController, :create
-    delete "sign_out", SessionController, :delete
+    delete "/sign_out", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
