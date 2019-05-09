@@ -20,8 +20,7 @@ defmodule ShoppingListWeb.ListItemController do
     case ShoppingLists.create_list_item(list_item_params) do
       {:ok, list_item} ->
         conn
-        |> put_flash(:info, "List item created successfully.")
-        |> redirect(to: Routes.list_list_item_path(conn, :show, list_id, list_item))
+        |> redirect(to: Routes.list_path(conn, :show, list_id))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         IO.inspect(changeset)
