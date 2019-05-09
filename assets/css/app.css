@@ -18,7 +18,16 @@ span.nav-title {
   font-size: 115px!important;
 }
 
-.shopping-list {
-  border-collapse: separate;
-  border-spacing: 100px;
+#new-item {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+#new-item > * {
+  margin-right: 30px;
+}
+
+#new-item button {
+  padding: 0;
 }

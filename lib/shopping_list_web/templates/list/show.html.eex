@@ -2,16 +2,19 @@
 
 <%= form_for @changeset, Routes.list_list_item_path(@conn, :create, @list), fn f -> %>
 
-  <label>
-    Item <%= text_input f, :item_name %>
-  </label>
+  <div id="new-item";>
+    <button type="submit"><i class="medium material-icons">add</i></button>
+    <label>
+      <%= text_input f, :item_name, placeholder: "Item" %>
+    </label>
 
-  <label>
-    Quantity <%= text_input f, :quantity %>
-  </label>
+    <label>
+      <%= text_input f, :quantity, placeholder: "Quantity" %>
+    </label>
+  </div>
 
-  <%= submit "new item" %>
 <% end %>
+
 <table>
   <%= for {section, list_items} <- @grouped_list_items do %>
     <%= render("section.html", conn: @conn, section: section, list_items: list_items) %>
