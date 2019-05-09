@@ -1,5 +1,3 @@
-<h1 class="listing-title">Listing Lists</h1>
-
 <%= if !(connected_user = Plug.Conn.get_session(@conn, :current_user_id)) do %>
 
 <ul class="collection with-header">
