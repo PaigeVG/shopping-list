@@ -76,7 +76,7 @@ defmodule ShoppingListWeb.ListController do
       {:ok, list} ->
         conn
         |> put_flash(:info, "List updated successfully.")
-        |> redirect(to: Routes.list_path(conn, :show, list))
+        |> redirect(to: Routes.list_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", list: list, changeset: changeset)
